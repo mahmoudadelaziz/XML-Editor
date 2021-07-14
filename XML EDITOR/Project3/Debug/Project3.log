@@ -1,0 +1,8 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Project3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Source.cpp
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(25,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(29,41): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(63,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(98,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Source.cpp(63,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Project3.vcxproj -> C:\Users\khale\source\repos\Project3\Debug\XML EDITOR.exe

@@ -1,0 +1,16 @@
+
+<node1 value123="text"value2="text243">
+	 content1 content1 again
+	<node2 >
+		<node5 att5="text5"> content5</node5>
+	</node2>
+	<node3 >
+		 content3
+		<node4 >
+			 content4
+			<class att6="text6">
+				 saklfdjnaslfnsdl safkhsmf aksfhbas mfkuashf sfkuagsfbak kfghsakfbaksfhu
+			</class>
+		</node4>
+	</node3>
+</node1>
