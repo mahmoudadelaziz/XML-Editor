@@ -39,6 +39,7 @@ void get_element(){
                 new_data.back() = original.substr(0, tag_finish - 1 - flag) + ">";
                 first = false;
             }
+            temp += '>';
             new_data.push_back(temp);
             flag = 0;
             i--;
