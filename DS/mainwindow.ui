@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1414</width>
+    <height>776</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>XML Editor</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="Detect_B">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>10</y>
+      <width>201</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Detect Errors</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="Original">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>681</width>
+      <height>531</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="Edited">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>130</y>
+      <width>681</width>
+      <height>531</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Convert_B">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>10</y>
+      <width>201</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Convert to JSON</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Load_B">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>680</y>
+      <width>191</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Load File</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Save_B">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>680</y>
+      <width>191</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Format_B">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>10</y>
+      <width>201</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Format</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
