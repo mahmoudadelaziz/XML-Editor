@@ -1,2 +1,0 @@
-C:\Users\dell\source\repos\AVLtree\Debug\AVLtree.exe
-C:\Users\dell\source\repos\AVLtree\Debug\AVLtree.pdb
