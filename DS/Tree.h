@@ -18,7 +18,7 @@ class node {
    string content;
     vector <node*> nodes;
     node* parent;
-    vector<vector<string>> paramiters;
+    vector<vector<string>> pars;
     string par;
     bool error;
 
@@ -34,7 +34,7 @@ public:
 
                 for (int i1 = i + 1; i1 < s.size(); i1++) {
                     if (s[i1] == '\"')c++;
-                    if (c == 2) { temp.push_back( s.substr(i + 1, i1 - i)); i = i1 + 1; j = i;  c = 0; paramiters.push_back(temp);  break; }
+                    if (c == 2) { temp.push_back( s.substr(i + 1, i1 - i)); i = i1 + 1; j = i;  c = 0; pars.push_back(temp);  break; }
                 }
             }
         }
@@ -54,7 +54,7 @@ bool get_error(){return error;}
     node* NP() { return parent; }
 
 
-    void print_xml(int n, string *all,bool errbool) {
+void print_xml(int n, string *all,bool errbool) {
 
          node* current = this;
          if(n!=0)
@@ -125,7 +125,98 @@ bool get_error(){return error;}
         output<<*all;
         output.close();
     }
-   // ofstream output("text.txt");
+
+
+
+void print_json(int n, string *all) {
+if(n==0)all->append("{ \n");
+//else{all->append("\n");}
+         node* current = this;
+        for (int i = 0; i < n+1; i++) {
+           all->append ("    ");all->append ("  ");
+        }
+
+        all->append( '"' + name +'"'+": ");
+        if(par!=""){
+            all->append("{");
+            if(pars.size()>1){
+                all->append("\n");
+                        for(int i=0;i<pars.size();i++){
+           all->append("\"@"+pars[i][0]+"\": "+"\""+pars[i][1]+"\"");
+                        if(i<pars.size()-1){all->append(",");}
+                        all->append("\n");
+                         if(i<pars.size()-1){
+                        for (int j = 0; j < n+2; j++) {
+                           all->append ("    ");all->append ("  ");}
+                        }}
+
+                        if(content!=""||nodes.size()!=0)all->append(",");
+                        if(content==""&&nodes.size()==0)all->append("}");
+            }
+            else{all->append("\"@"+pars[0][0]+"\": "+"\""+pars[0][1]+"\"");
+              //  if(i<pars.size()-1){all->append(",");}
+                if(content!=""||nodes.size()!=0)all->append(",");
+                if(content==""&&nodes.size()==0){all->append("}");all->append("\n");}
+            }
+            all->append("\n");
+        }
+
+
+        if (content!="") {
+
+            if (content.size() > 50 || nodes.size() != 0) {
+                if(par==""&&nodes.size()==0){all->append("[");}
+               // cout<<endl<<"size if large"<<endl;
+                int it=0,it2=50;
+                if(par!=""||nodes.size()!=0)all->append("\"#text\": ");
+                all->append("\"");
+                again1:
+                if(it<content.size()){
+                all->append( "\n");
+                for (int i = 0; i < n+2; i++) {all->append ("    ");all->append ("  ");}
+
+                for(int i=it2;i<it2+10;i++){if(content[i]==' '||i==content.size()-1) {it2=i; /*cout<<endl<<"it2 "<<it2<<endl;*/ break;}}
+                all->append(content.substr(it,it2-it));
+                it=it2+1;
+                if(it2+50<content.size()-1){it2+=50;}
+                else{it2=content.size();}
+                goto again1;}
+                all->append("\"");
+
+            }
+            else{
+                if(par!=""||nodes.size()!=0)all->append("\"#text\": ");
+            all->append( "\""+content+"\"");}
+
+        }
+
+if(nodes.size()>0&&pars.size()==0){all->append("{\n");}
+        for (int i = 0; i < nodes.size(); i++) {
+            node* temp = nodes[i];
+            temp->print_json(n+1,all);
+        }
+
+     //   n--;
+
+            if (content.size() > 50 || nodes.size() != 0) {
+                all->append( "\n");
+
+                for (int i = 0; i < n+1; i++) {all->append ("    ");all->append ("  ");}
+            }
+
+
+        if(pars.size()>0||nodes.size()>0){all->append("}");all->append("\n");}
+        else if(content.size()>50){all->append("]");all->append("\n");}
+        else if(content.size()==0){all->append(" null");}
+       // if(nodes.size()>1||(nodes.size()>0&&content!="")){if(this==this->NP()->tnodes()[this->NP()->tnodes().size()-1]){all->append(",");}}
+        if(!(content.size() > 50 || nodes.size() != 0)){all->append("\n");}
+        //if(current->get_error())all->append("   <<---ERROR");
+        ofstream output("XML.xml");
+        output<<*all;
+        output.close();
+    }
+
+// ofstream output("text.txt");
 
 };
 
