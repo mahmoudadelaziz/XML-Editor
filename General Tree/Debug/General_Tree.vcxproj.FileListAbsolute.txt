@@ -1,0 +1,2 @@
+C:\Users\dell\source\repos\General_Tree\Debug\General_Tree.exe
+C:\Users\dell\source\repos\General_Tree\Debug\General_Tree.pdb

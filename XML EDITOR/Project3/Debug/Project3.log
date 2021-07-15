@@ -1,0 +1,9 @@
+﻿  Source.cpp
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(25,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(29,41): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(54,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(59,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(91,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Tree.h(100,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\khale\source\repos\Project2\Project2\Source.cpp(7,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Project3.vcxproj -> C:\Users\khale\source\repos\Project3\Debug\Project3.exe
