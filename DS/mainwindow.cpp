@@ -25,9 +25,12 @@ string *all;
 bool j_x;
 
 
-string removeSpaces(string str)
+string removeSpaces(string str1)
 {
-    if (str[str.size() - 1] == ' ') str = str.substr(0, str.size() - 1);
+    string str=str1;
+    if(str[str.size()-1]=='>'&&str[0]=='<'){str=str.substr(0,str.size()-1);}
+   str.erase(std::remove(str.begin(), str.end(), ' '), str.end());
+
     return str;
 }
 void read(node *start){
@@ -43,6 +46,7 @@ if (!input.is_open()) {  cout<< "dile is not open"<<endl;return;//QMessageBox::w
    if(getline(input,line)){
     in=line;
     in = in.substr(1, in.size()-2);
+    in=removeSpaces(in);
     start = new node(in);
     current=start;
     nodes.push(in);
@@ -282,6 +286,7 @@ MainWindow::~MainWindow()
 }
 
 QDir d;
+QString File_name;
 void MainWindow::on_Load_B_clicked()
 {
     ofstream ofs;
@@ -289,6 +294,8 @@ void MainWindow::on_Load_B_clicked()
     ofs.close();
     QString l = QFileDialog::getOpenFileName(this,"Choose the file");
  QFile file1(l);
+ d = QFileInfo(l).absoluteDir();
+ File_name=QFileInfo(l).baseName();
  read1(l);
  string stext;
  for(int i=0;i<new_data.size();i++){
@@ -348,9 +355,9 @@ void MainWindow::on_Convert_B_clicked()
 {
     if(start1!=NULL){
         string* all = new string;
-           start1->print_xml(0,all,0);
+           start1->print_json(0,all);
            QString qtext=QString::fromLocal8Bit(*all);
-
+ui->Edited->setText(qtext);
         }
         else{QMessageBox::warning(this,"ERROR","Please load a file");}
     j_x=1;
@@ -371,38 +378,54 @@ j_x=0;
 
 
 void MainWindow::on_Save_B_clicked()
-{
-    QString absolute=d.absolutePath();
+{if(start1==NULL){QMessageBox::warning(this,"ERROR","Please load a file");}
+    else{QString absolute=d.absolutePath();
     if(j_x){
-    QFile saved(absolute+"/new.json");
+    QFile saved(absolute+"/"+File_name+".json");
     if (!saved.open(QFile::WriteOnly | QFile::Text)){
         QMessageBox::warning(this,"WARNING","File not open");
     }
     QTextStream out(&saved);
     QString s = ui->Edited->toPlainText();
     out<<s;
-    string loc="explorer ";
-    loc+=absolute.toLocal8Bit().constData();
-    cout<<loc<<endl<<endl;
+    string dir="";
+    dir.push_back(absolute.toLocal8Bit().constData()[0]);
+    dir.push_back(absolute.toLocal8Bit().constData()[1]);
+    vector<string> cmds;
+    cmds.push_back(dir);
+    string temp="cd ";
+    temp .append(absolute.toLocal8Bit().constData());
+    cmds.push_back(temp);
+    cmds.push_back("start.");
     saved.flush();
     saved.close();
-    const char *locout=loc.c_str();
-    system(locout);}
+    QMessageBox::warning(this,"File saved","Your saved file is the same directory");
+   /* for(int i=0;i<cmds.size();i++){
+    const char *locout=cmds[i].c_str();
+  //  dir+=locout;
+    system(locout);}*/
+    }
     if(!j_x){
-    QFile saved(absolute+"/new.xml");
+    QFile saved(absolute+"/"+File_name+".xml");
     if (!saved.open(QFile::WriteOnly | QFile::Text)){
         QMessageBox::warning(this,"WARNING","File not open");
     }
     QTextStream out(&saved);
     QString s = ui->Edited->toPlainText();
     out<<s;
-    string loc="explorer ";
-    loc+=absolute.toLocal8Bit().constData();
-    cout<<loc<<endl<<endl;
+    string dir="";
+    dir.push_back(absolute.toLocal8Bit().constData()[0]);
+    dir.push_back(absolute.toLocal8Bit().constData()[1]);
+    vector<string> cmds;
+    cmds.push_back(dir);
+    string temp="cd ";
+    temp .append(absolute.toLocal8Bit().constData());
+    cmds.push_back(temp);
+    cmds.push_back("start.");
     saved.flush();
     saved.close();
-    const char *locout=loc.c_str();
-    system(locout);}
+    QMessageBox::warning(this,"File saved","Your saved file is the same directory");}
 
+}
 }
 

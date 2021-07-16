@@ -1,0 +1,68 @@
+<breakfast_menu>
+core="fast">
+<food >
+<name >
+BelgianWaffles
+</name>
+<price >
+$5.95
+</price>
+<description >
+</description>
+<calories >
+650
+</calories>
+</food>
+<food >
+<name >
+StrawberryBelgianWaffles
+</name>
+<price >
+$7.95
+</price>
+<description >
+</description>
+<calories >
+900
+</calories>
+</food>
+<food >
+<name >
+Berry-BerryBelgianWaffles
+</name>
+<price >
+$8.95
+</price>
+<description >
+</description>
+<calories >
+900
+</calories>
+</food>
+<food >
+<name >
+FrenchToast
+</name>
+<price >
+$4.50
+</price>
+<description >
+Thickslicesmadefromourhomemadesourdoughbread
+</description>
+<calories >
+600
+</calories>
+</food>
+<food >
+<name >
+HomestyleBreakfast
+</name>
+<price >
+$6.95
+</price>
+<description >
+</description>
+<calories >
+950 
+</calos>
+</breakfast_menu>

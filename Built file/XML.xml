@@ -1,0 +1,39 @@
+{ 
+      "breakfast_menu": {"@core": ""fast"",
+            "food": {
+                  "name": " BelgianWaffles"
+                  "price": " $5.95"
+                  "description":  null
+                  "calories": " 650"
+
+            }
+            "food": {
+                  "name": " StrawberryBelgianWaffles"
+                  "price": " $7.95"
+                  "description":  null
+                  "calories": " 900"
+
+            }
+            "food": {
+                  "name": " Berry-BerryBelgianWaffles"
+                  "price": " $8.95"
+                  "description":  null
+                  "calories": " 900"
+
+            }
+            "food": {
+                  "name": " FrenchToast"
+                  "price": " $4.50"
+                  "description": " Thickslicesmadefromourhomemadesourdoughbread"
+                  "calories": " 600"
+
+            }
+            "food": {
+                  "name": " HomestyleBreakfast"
+                  "price": " $6.95"
+                  "description":  null
+                  "calories": " 950"
+
+            }
+
+      }
